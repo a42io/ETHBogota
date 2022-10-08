@@ -2,7 +2,7 @@
 ## Deployed contracts
 ### Polygon Matic
 
-| Name | Contract Address | Status |
+| Name | Contract Address | Verified |
 | ---- | ---- | --- |
 | Zmorpheus| 0x529544436D947dd28C4c7dDf1757BE70DeDc57a9 | Not Yet |
 |  Verifier16  |  0x674Ae972F5B4E1dcc7f1BFAdf14dc00A5628026a  | Not Yet |
@@ -11,7 +11,7 @@
 
 ### Polygon Scroll
 
-| Name | Contract Address | Status |
+| Name | Contract Address | Verified |
 | ---- | ---- | --- |
 | Zmorpheus| 0xB5A2De0eE509815C3Ce8f1F6D5a25347Ea6b3e24 | Not Yet |
 |  Verifier16  |  0x9D6177Ad9031846C2a3F3C791CbCdae87565E962  | Not Yet |
