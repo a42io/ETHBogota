@@ -16,7 +16,7 @@ error InsufficientFee(uint256 requiredFee, uint256 actual);
 error InsufficientEventFee(uint256 requiredFee, uint256 actual);
 error InvalidContractAddress(address contractAddress);
 error AlreadyRelayer(address relayerAddress);
-error AlreadyUsedNillifier(uint256);
+error AlreadyUsedNullifier(uint256);
 
 contract Zmorpheus is IZmorpheus, SemaphoreCore, SemaphoreGroups, Ownable {
     /// @dev fee for each event creation
@@ -128,10 +128,10 @@ contract Zmorpheus is IZmorpheus, SemaphoreCore, SemaphoreGroups, Ownable {
 
         // verifyMembership with payment can be called only once.
         if (nullifierHashes[_nullifierHash]) {
-            revert AlreadyUsedNillifier(_nullifierHash);
+            revert AlreadyUsedNullifier(_nullifierHash);
         }
 
-        //TODO do something here
+        nullifierHashes[_nullifierHash] = true;
     }
 
     ///@dev see {IZmorpheus-createEvent}.
