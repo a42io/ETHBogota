@@ -4,14 +4,15 @@ import "@nomicfoundation/hardhat-toolbox";
 
 dotenv.config();
 
-
 const config: HardhatUserConfig = {
   solidity: "0.8.4",
   networks: {
-    goerli: {
-      url: process.env.GOERLI_URL || "",
+    scroll: {
+      url: process.env.SCROLL_TESTNET_URL || "",
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY_FOR_SCROLL !== undefined
+          ? [process.env.PRIVATE_KEY_FOR_SCROLL]
+          : [],
     },
     matic: {
       url: process.env.MATIC_URL,
