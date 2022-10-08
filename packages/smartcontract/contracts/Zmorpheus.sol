@@ -89,7 +89,7 @@ contract Zmorpheus is IZmorpheus, SemaphoreCore, SemaphoreGroups, Ownable {
         uint256 _externalNullifier,
         uint256[8] calldata _proof
     ) public view override returns (bool) {
-        uint256 root = getNumberOfMerkleTreeLeaves(_eventId);
+        uint256 root = getMerkleTreeRoot(_eventId);
         uint256 depth = getMerkleTreeDepth(_eventId);
 
         if (depth == 0) {
