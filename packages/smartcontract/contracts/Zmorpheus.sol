@@ -2,6 +2,7 @@
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@semaphore-protocol/contracts/base/SemaphoreCore.sol";
 import "@semaphore-protocol/contracts/base/SemaphoreGroups.sol";
@@ -146,9 +147,13 @@ contract Zmorpheus is IZmorpheus, SemaphoreCore, SemaphoreGroups, Ownable {
             revert InsufficientFee(fee, msg.value);
         }
 
-        // check if the contract address has the ERC721 interface
+        // check if the contract address has the ERC721 or ERC1155 interface
         bytes4 ERC721InterfaceId = type(IERC721).interfaceId;
-        if (!IERC721(_contractAddress).supportsInterface(ERC721InterfaceId)) {
+        bytes4 ERC71155InterfaceId = type(IERC1155).interfaceId;
+        if (
+            !IERC721(_contractAddress).supportsInterface(ERC721InterfaceId) ||
+            !IERC1155(_contractAddress).supportsInterface(ERC71155InterfaceId)
+        ) {
             revert InvalidContractAddress(_contractAddress);
         }
 

@@ -14,14 +14,14 @@ async function main() {
    */
   const Zmorpheus = await ethers.getContractFactory("Zmorpheus", {
     libraries: {
-      IncrementalBinaryTree: "0x3EF4D8f281335aA21336A63D1da3A158Fa63b9CC",
+      IncrementalBinaryTree: "0xD8f10dF965C53B8448a77B7d16c44B36b56dE095",
     },
   });
   const zmorpheus = await Zmorpheus.deploy(
     [
       {
         merkleTreeDepth: 16,
-        contractAddress: "0x674Ae972F5B4E1dcc7f1BFAdf14dc00A5628026a",
+        contractAddress: "0x9D6177Ad9031846C2a3F3C791CbCdae87565E962",
       },
     ],
     [signer.address, "0x199012076Ea09f92D8C30C494E94738CFF449f57"],
