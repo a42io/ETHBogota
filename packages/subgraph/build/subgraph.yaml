@@ -1,0 +1,56 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Zmorpheus
+    network: matic
+    source:
+      address: "0xB5A2De0eE509815C3Ce8f1F6D5a25347Ea6b3e24"
+      abi: Zmorpheus
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - EventCreated
+        - GroupCreated
+        - MemberAdded
+        - MemberRemoved
+        - MemberUpdated
+        - NullifierHashAdded
+        - OwnershipTransferred
+        - RelayerAdded
+        - RelayerRemoved
+        - VerifierAdded
+        - VerifierRemoved
+        - Withdraw
+      abis:
+        - name: Zmorpheus
+          file: Zmorpheus/abis/Zmorpheus.json
+      eventHandlers:
+        - event: EventCreated(indexed uint256,uint8,uint256,indexed address,indexed address)
+          handler: handleEventCreated
+        - event: GroupCreated(indexed uint256,uint256,uint256)
+          handler: handleGroupCreated
+        - event: MemberAdded(indexed uint256,uint256,uint256,uint256)
+          handler: handleMemberAdded
+        - event: MemberRemoved(indexed uint256,uint256,uint256,uint256)
+          handler: handleMemberRemoved
+        - event: MemberUpdated(indexed uint256,uint256,uint256,uint256,uint256)
+          handler: handleMemberUpdated
+        - event: NullifierHashAdded(uint256)
+          handler: handleNullifierHashAdded
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RelayerAdded(indexed address)
+          handler: handleRelayerAdded
+        - event: RelayerRemoved(indexed address)
+          handler: handleRelayerRemoved
+        - event: VerifierAdded((address,uint8))
+          handler: handleVerifierAdded
+        - event: VerifierRemoved((address,uint8))
+          handler: handleVerifierRemoved
+        - event: Withdraw(indexed address)
+          handler: handleWithdraw
+      file: Zmorpheus/Zmorpheus.wasm

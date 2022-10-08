@@ -1,0 +1,9 @@
+type PseudonymParty @entity {
+  id: ID!
+  eventId: BigInt! # uint256
+  contractAddress: Bytes!
+  hostAddress: Bytes!
+  depth: Int! # uint8
+  members: [BigInt!]!
+  currentRoot: BigInt
+}
