@@ -1,6 +1,7 @@
 {
   "name": "zmorpheus",
   "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",

@@ -1,3 +1,11 @@
 .DS_Store
 
 node_modules/
+
+.env
+Makefile
+
+.idea
+
+
+*admin.json
