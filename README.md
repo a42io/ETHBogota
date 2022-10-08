@@ -1,6 +1,6 @@
 
 ## Deployed contracts
-### Polygon Matic
+### Scroll Pre-Alpha Testnet
 
 | Name | Contract Address | Verified |
 | ---- | ---- | --- |
@@ -9,7 +9,7 @@
 |  PoseidonT3  |  0x818F98DF6a0ad1E1bCB2FAC08247c8Ad0724013d  | Not Yet |
 | TreeLib|0x3EF4D8f281335aA21336A63D1da3A158Fa63b9CC | Not Yet |
 
-### Polygon Scroll
+### Polygon Matic
 
 | Name | Contract Address | Verified |
 | ---- | ---- | --- |
