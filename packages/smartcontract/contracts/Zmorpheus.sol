@@ -147,16 +147,6 @@ contract Zmorpheus is IZmorpheus, SemaphoreCore, SemaphoreGroups, Ownable {
             revert InsufficientFee(fee, msg.value);
         }
 
-        // check if the contract address has the ERC721 or ERC1155 interface
-        bytes4 ERC721InterfaceId = type(IERC721).interfaceId;
-        bytes4 ERC71155InterfaceId = type(IERC1155).interfaceId;
-        if (
-            !IERC721(_contractAddress).supportsInterface(ERC721InterfaceId) ||
-            !IERC1155(_contractAddress).supportsInterface(ERC71155InterfaceId)
-        ) {
-            revert InvalidContractAddress(_contractAddress);
-        }
-
         // create group
         _createGroup(_eventId, _depth, _zeroValue);
 

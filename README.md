@@ -34,7 +34,7 @@ We use WalletConnect to make it easier for users to join Web3 world. WalletConne
 
 | Name | Contract Address | Verified |
 | ---- | ---- | --- |
-| Zmorpheus| 0x5f4077c40a329617eB55745246981753A9DB1fAA | Not Yet |
+| Zmorpheus| 0xE2F3308c29b5616b1bc90eAC4E1D27D2cD3DB66b | Not Yet |
 |  Verifier16  |  0x674Ae972F5B4E1dcc7f1BFAdf14dc00A5628026a  | Not Yet |
 |  PoseidonT3  |  0x818F98DF6a0ad1E1bCB2FAC08247c8Ad0724013d  | Not Yet |
 | TreeLib|0x3EF4D8f281335aA21336A63D1da3A158Fa63b9CC | Not Yet |
@@ -43,7 +43,7 @@ We use WalletConnect to make it easier for users to join Web3 world. WalletConne
 
 | Name | Contract Address | Verified |
 | ---- | ---- | --- |
-| Zmorpheus| [0x8F727c5a10430cFaA50A8a4f9feb2810a1CDdbBe](https://polygonscan.com/address/0x8F727c5a10430cFaA50A8a4f9feb2810a1CDdbBe#code) | YES |
+| Zmorpheus| [0xf004f73aee5823609dE286774397C901Fc95Fc2F](https://polygonscan.com/address/0xf004f73aee5823609dE286774397C901Fc95Fc2F#code) | YES |
 |  Verifier16  |  [0x9D6177Ad9031846C2a3F3C791CbCdae87565E962](https://polygonscan.com/address/0x9D6177Ad9031846C2a3F3C791CbCdae87565E962)  | Not Yet |
 |  PoseidonT3  |  [0xbBbF2237f921029c40c4c3fDA9d409915A6A6606](https://polygonscan.com/address/0xbBbF2237f921029c40c4c3fDA9d409915A6A6606)  | Not Yet |
 | TreeLib|[0xD8f10dF965C53B8448a77B7d16c44B36b56dE095](https://polygonscan.com/address/0xD8f10dF965C53B8448a77B7d16c44B36b56dE095) | Not Yet |

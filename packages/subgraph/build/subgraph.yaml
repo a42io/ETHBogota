@@ -6,8 +6,9 @@ dataSources:
     name: Zmorpheus
     network: matic
     source:
-      address: "0xB5A2De0eE509815C3Ce8f1F6D5a25347Ea6b3e24"
+      address: "0xf004f73aee5823609dE286774397C901Fc95Fc2F"
       abi: Zmorpheus
+      startBlock: 34112804
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5

@@ -21,6 +21,7 @@ import { getProvider, mainnetProvider } from "~/libs/web3providers";
 
 import { Zmorpheus__factory as ZmorpheusFactory } from "~/libs/contractMock";
 import getContractAddress from "~/libs/contract";
+import { ethers } from "ethers";
 
 function isValidMessage(message: {
   eventId?: string;
@@ -119,7 +120,7 @@ export const get: express.RequestHandler = async (req, res, next) => {
 
 //TODO not issue, but join event actually here
 export const issue: express.RequestHandler = async (req, res, next) => {
-  const { message, signature } = req.body;
+  const { message, signature, identityCommitment } = req.body;
   const { eventId, nft, ens, nonce } = message;
   if (!signature) {
     return next(badRequestException(TICKET_API_ERRORS.INVALID_BODY));
@@ -211,8 +212,8 @@ export const issue: express.RequestHandler = async (req, res, next) => {
         account: account.id,
         eventId: event.id,
         invalidated: false,
-        nft,
         signature,
+        nft,
         event: {
           host: event.host,
           title: event.title,
@@ -231,6 +232,27 @@ export const issue: express.RequestHandler = async (req, res, next) => {
       nft: (ticket as NFTTicket)?.nft,
       ticketId: ticket.id,
     });
+
+    const provider =
+      event.verificationNetworkOption === "scroll"
+        ? getProvider("534354")
+        : getProvider("137");
+
+    const contractAddress = getContractAddress(event.verificationNetworkOption);
+    const signer = new ethers.Wallet(process.env.SIGNER_PK as string, provider);
+
+    const contract = ZmorpheusFactory.connect(contractAddress, signer);
+
+    const feeData = await provider.getFeeData();
+
+    if (!feeData.gasPrice) {
+      return res.status(500).send("Failed to fetch fee data!");
+    }
+
+    const tx = await contract.addMember(eventId, identityCommitment, {
+      gasPrice: feeData.gasPrice,
+    });
+    await tx.wait();
 
     return res.json(ticket);
   } catch (e) {
@@ -257,8 +279,8 @@ export const verify: express.RequestHandler = async (req, res, next) => {
     // check if the account can manage the events
     const ensName = await mainnetProvider.lookupAddress(manager.id);
     if (
-      event.host.addressOrEns !== ensName &&
-      event.host.addressOrEns !== manager.id &&
+      event.host.ens !== ensName &&
+      event.host.address !== manager.id &&
       !event.managers.some((r) => r.address === manager.id)
     ) {
       return next(badRequestException(TICKET_API_ERRORS.UNAUTHORIZED_ACCOUNT));

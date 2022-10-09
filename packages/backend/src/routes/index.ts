@@ -8,6 +8,7 @@ import {
   create as createEvent,
   my,
   getAllowedNFTs,
+  getENSorAddress,
 } from "~/controllers/events";
 
 import {
@@ -41,6 +42,7 @@ router.get("/events/:eventId", getEvent);
 router.get("/proofs/:proofId", getTicket);
 
 router.get("/events/:eventId/allowedNFTs", accessTokenAuth, getAllowedNFTs);
+router.get("/events/:eventId/getENS", getENSorAddress);
 
 /**
  * Events
