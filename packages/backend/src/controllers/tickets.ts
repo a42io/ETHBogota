@@ -249,6 +249,10 @@ export const issue: express.RequestHandler = async (req, res, next) => {
       return res.status(500).send("Failed to fetch fee data!");
     }
 
+    console.log("here---------------------");
+    console.log(eventId);
+    console.log(identityCommitment);
+
     const tx = await contract.addMember(eventId, identityCommitment, {
       gasPrice: feeData.gasPrice,
     });

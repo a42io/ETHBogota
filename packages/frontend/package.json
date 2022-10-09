@@ -11,6 +11,7 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
@@ -27,6 +28,7 @@
     "@walletconnect/client": "^1.8.0",
     "@walletconnect/qrcode-modal": "^1.8.0",
     "autosuggest-highlight": "^3.3.0",
+    "buffer": "^6.0.3",
     "change-case": "^4.1.2",
     "date-fns": "^2.29.3",
     "ethers": "^5.7.1",
